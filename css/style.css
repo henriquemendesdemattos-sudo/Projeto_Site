@@ -1,0 +1,214 @@
+/* ------------------------- */
+/* RESET E VARIÁVEIS GLOBAIS */
+/* ------------------------- */
+:root {
+    --dark-blue: #0A192F;
+    --neon-green: #39FF14;
+    --light-gray: #A8B2D1;
+    --white: #F5F5F5;
+    --font-family: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-blue);
+    font-family: var(--font-family);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------------------- */
+/* COMPONENTES REUTILIZÁVEIS */
+/* ------------------------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background-color: var(--neon-green);
+    color: var(--dark-blue);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
+}
+
+/* ------------------------- */
+/* CABEÇALHO E NAVEGAÇÃO     */
+/* ------------------------- */
+.main-header {
+    padding: 20px 0;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--neon-green);
+    text-decoration: none;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Efeito de sublinhado no hover */
+.main-nav a:not(.btn)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--neon-green);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.main-nav a:not(.btn):hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.main-nav .btn-outline {
+    margin-left: 30px;
+}
+
+/* ------------------------- */
+/* SEÇÃO HERO                */
+/* ------------------------- */
+.hero {
+    padding: 80px 0;
+}
+
+.hero .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    margin-bottom: 30px;
+}
+
+.hero-image img {
+    max-width: 100%;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Animação para a imagem */
+@keyframes float {
+	0% { transform: translateY(0px); }
+	50% { transform: translateY(-20px); }
+	100% { transform: translateY(0px); }
+}
+
+
+/* ------------------------- */
+/* RODAPÉ                    */
+/* ------------------------- */
+.main-footer {
+    border-top: 1px solid #2a3a55;
+    padding: 30px 0;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.footer-links a, .social-media a {
+    color: var(--light-gray);
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footer-links a:hover, .social-media a:hover {
+    color: var(--neon-green);
+}
+
+/* ------------------------- */
+/* DESIGN RESPONSIVO         */
+/* ------------------------- */
+@media(max-width: 768px) {
+    .hero .grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1; /* Coloca a imagem acima do texto em telas pequenas */
+        margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-nav ul {
+        display: none; /* Em um projeto real, aqui entraria um menu hamburguer */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
