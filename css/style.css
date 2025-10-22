@@ -1,0 +1,57 @@
+/* Folha de Estilo Personalizada para BasicBank
+*/
+
+/* Variável de Cor
+Usamos uma variável CSS (--basicbank-primary-color) para definir a cor principal. 
+Se quisermos mudar o azul do site todo, só precisamos alterar esta linha.
+*/
+:root {
+    --basicbank-primary-color: #1e3a8a; /* Um tom de azul escuro */
+}
+
+/* Estilização do Botão Principal
+Sobrescrevemos a classe .btn-primary padrão do Bootstrap 
+para que ela use a cor da nossa marca.
+*/
+.btn-primary {
+    background-color: var(--basicbank-primary-color);
+    border-color: var(--basicbank-primary-color);
+    font-weight: 500;
+}
+
+/* Efeito Hover (mouse em cima) para o Botão
+Escurece levemente o botão quando o mouse passa por cima,
+dando um feedback visual importante para o usuário.
+*/
+.btn-primary:hover {
+    background-color: #1c3274; /* Um tom um pouco mais escuro que o principal */
+    border-color: #1c3274;
+}
+
+/* Estilização do Logo na Barra de Navegação
+Aplicamos a cor da marca diretamente no link com a classe .navbar-brand
+*/
+.navbar-brand {
+    color: var(--basicbank-primary-color) !important; /* O !important é para garantir que ele sobrescreva o Bootstrap */
+}
+
+/* Estilização dos Ícones do Rodapé
+*/
+.footer-icons a {
+    color: #6c757d; /* Cor cinza padrão do Bootstrap para texto muted */
+    transition: color 0.3s ease; /* Adiciona uma transição suave na mudança de cor */
+    font-size: 1.25rem; /* Aumenta um pouco o tamanho dos ícones */
+}
+
+/* Efeito Hover para os Ícones do Rodapé
+Muda a cor dos ícones para a cor da nossa marca ao passar o mouse.
+*/
+.footer-icons a:hover {
+    color: var(--basicbank-primary-color);
+}
+
+/* Estilização dos Ícones da Seção Pilares (Sobre) */
+.icon-primary {
+    color: var(--basicbank-primary-color);
+}
+
